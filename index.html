@@ -8,6 +8,27 @@
     </head>
     <body>
          <canvas id="myCanvas" width="600" height="600" style="border:1px solid #000000;"></canvas>
-
+         <script>
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+            
+            drawGridset();
+            function drawGridset(){
+                let divider, divider2, gridCount;
+                gridCount = 4;
+                divider = 600/gridCount;
+                divider2 = 600/gridCount;
+                for (gridCount; gridCount >= 0; gridCount--) {
+                    ctx.moveTo(divider, 0);
+                    ctx.lineTo(divider, 600);
+                    ctx.stroke();
+                    divider = divider + divider2;
+                }
+                    
+                    
+                
+                
+            }
+         </script>   
     </body>
 </html>
