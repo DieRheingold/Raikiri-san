@@ -13,22 +13,96 @@
             border:5px solid #000000;
             font-size: 24px;
             }
+
             body {
             background-color: orange;
-
             }
+            
+            input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+            width: 15rem;
+            }
+
+            /* Removes default focus */
+            input[type="range"]:focus {
+            outline: none;
+            }
+
+            /***** Chrome, Safari, Opera and Edge Chromium styles *****/
+            /* slider track */
+            input[type="range"]::-webkit-slider-runnable-track {
+            background-color: black;
+            border-radius: 0.5rem;
+            height: 0.5rem;  
+            }
+
+            /* slider thumb */
+            input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none; /* Override default look */
+            appearance: none;
+            margin-top: -12px; /* Centers thumb on the track */
+
+            /*custom styles*/
+            background-color: black;
+            height: 2rem;
+            width: 1rem;
+            }
+
+            /******** Firefox styles ********/
+            /* slider track */
+            input[type="range"]::-moz-range-track {
+            background-color: black;
+            border-radius: 0.5rem;
+            height: 0.5rem;
+            }
+
+            /* slider thumb */
+            input[type="range"]::-moz-range-thumb {
+            border: none; /*Removes extra border that FF applies*/
+            border-radius: 0; /*Removes default border-radius that FF applies*/
+
+            /*custom styles*/
+            background-color: black;
+            height: 2rem;
+            width: 1rem;
+            }
+
+            
         </style>
     </head>
     <body>
          <canvas id="myCanvas" width="600" height="600" style="border:1px solid #000000;"></canvas>
             
          <!-- These buttons change grid count (gridGen.js) -->
-         <div id="gridControl" style="margin-left: 610px; margin-right: 0; margin-top: 0;">
+         <div id="gridControl" style="justify-content: right; align-items: right;">
             <button onclick="addSq()">add+1</button> 
             <button onclick="subSq()">sub-1</button>
             <button onclick="resSq()">Create grid 10 by 10 or res</button>
             <button onclick="clscr()">Clear screen</button>
+            <button onclick="addVerticalOffset()">Add vertical offset</button>
+            <button onclick="subVerticalOffset()">Sub vertical offset</button>
+            <button onclick="resVerticalOffset()">Res vertical offset to 2</button>
+            <button onclick="addHorizontalOffset()">Add horizontal offset</button>
+            <button onclick="subHorizontalOffset()">Sub horizontal offset</button>
+            <button onclick="resVerticalOffset()">Res horizontal offset to 2</button>
+            
         </div>
+            
+        <!--<div>
+            <input type="range" id="verticalAl" name="verticalAl" 
+            value="2" min="1" max="2" step="0.1">
+                <label for="verticalAl">Vertical align</label>
+                
+            </input>
+            <input type="range" id="verticalAl2" name="verticalAl2" 
+            value="2" min="1" max="2" step="0.1">
+                <label for="verticalAl2">Horizontal align</label>
+                
+            </input>
+        </div>-->
 
          
          <script src="gridGen.js"></script>
