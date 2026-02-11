@@ -13,7 +13,7 @@
                 
                 offsetSq = ((offsetSq * 10) + 1) / 10;
                 genSquare();
-                console.log(offsetSq);
+                console.log("verticalOff" + offsetSq);
 
             }
 
@@ -21,30 +21,35 @@
                 ctx.clearRect(0, 0, 600, 600);
                 offsetSq = ((offsetSq * 10) - 1) / 10;
                 genSquare();
+                console.log("verticalOff" + offsetSq);
             }
 
             function resVerticalOffset(){
                 ctx.clearRect(0, 0, 600, 600);
-                offsetSq = 2;
+                offsetSq = (offsetSq - offsetSq) + 2;
                 genSquare();
+                console.log("verticalOff" + offsetSq);
             }
 
             function addHorizontalOffset(){
                 ctx.clearRect(0, 0, 600, 600);
                 offsetSq2 = ((offsetSq2 * 10) + 1) / 10;
                 genSquare();
+                console.log("horizontalOff" + offsetSq2);
             }
 
             function subHorizontalOffset(){
                 ctx.clearRect(0, 0, 600, 600);
                 offsetSq2 = ((offsetSq2 * 10) - 1) / 10;
                 genSquare();
+                console.log("horizontalOff" + offsetSq2);
             }
 
-            function resVerticalOffset(){
+            function resHorizontalOffset(){
                 ctx.clearRect(0, 0, 600, 600);
-                offsetSq2 = 2;
+                offsetSq2 = (offsetSq2 - offsetSq2) + 2;
                 genSquare();
+                console.log("horizontalOff" + offsetSq2);
             }
 
 
