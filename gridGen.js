@@ -6,6 +6,18 @@
             let offsetSq2 = 2;
             genSquare();
             
+            function verticalOffsetRange(value) {
+                ctx.clearRect(0, 0, 600, 600);
+                offsetSq = value;
+                genSquare(); 
+            }
+
+            function addHorizontalOffsetForUpper(){
+                ctx.clearRect(0, 0, 600, 600);
+
+                genSquare();
+                console.log("horizontalOffUpper" + offsetSq);
+            }
             
 
             function addVerticalOffset(){
@@ -60,15 +72,17 @@
                 let osc = offsetSq;
                 let osc2 = offsetSq2;
                 let multSq = 10;
-                
+                let lw = 2;
+                let osc_m, osc2_m;
+                osc_m = 1;
+                osc2_m = 1;
                 for (sc; sc > 1; sc --) {
-                    
+                    ctx.lineWidth = lw;
                     ctx.beginPath();
-                    ctx.rect(multSq, multSq, fullSize - multSq*osc, fullSize - multSq*osc2); // By changing the multiplier it is possible to offset squares to corner
+                    ctx.rect(multSq * osc_m, multSq * osc2_m, fullSize - multSq*osc, fullSize - multSq*osc2); // By changing the multiplier it is possible to offset squares to corner
                     ctx.stroke();
-                    
+                    lw = lw;
                     multSq = multSq + sc;
-
                 }
             }
 

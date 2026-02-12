@@ -70,42 +70,44 @@
             width: 1rem;
             }
 
+            #container {
+            position: relative;
+            }
+            #container canvas, #gridControl, #rangeInputs {
+            position: absolute;
+            }
+            canvas {
+            border:2px solid #000000;
+            }
             
         </style>
     </head>
     <body>
-         <canvas id="myCanvas" width="600" height="600" style="border:1px solid #000000;"></canvas>
-            
-         <!-- These buttons change grid count (gridGen.js) -->
-         <div id="gridControl" style="justify-content: right; align-items: right;">
-            <button onclick="addSq()">add+1</button> 
-            <button onclick="subSq()">sub-1</button>
-            <button onclick="resSq()">Create grid 10 by 10 or res</button>
-            <button onclick="clscr()">Clear screen</button>
-            <button onclick="addVerticalOffset()">Add vertical offset</button>
-            <button onclick="subVerticalOffset()">Sub vertical offset</button>
-            <button onclick="resVerticalOffset()">Res vertical offset to 2</button>
-            <button onclick="addHorizontalOffset()">Add horizontal offset</button>
-            <button onclick="subHorizontalOffset()">Sub horizontal offset</button>
-            <button onclick="resHorizontalOffset()">Res horizontal offset to 2</button>
-            
+        <div id="container">
+         <canvas id="myCanvas" width="600" height="600"></canvas>
+            <!--<div id="gridControl">
+                <button onclick="addSq()">add+1</button> 
+                <button onclick="subSq()">sub-1</button>
+                <button onclick="resSq()">Create grid 10 by 10 or res</button>
+                <button onclick="clscr()">Clear screen</button>
+                <button onclick="addVerticalOffset()">Add vertical offset</button>
+                <button onclick="subVerticalOffset()">Sub vertical offset</button>
+                <button onclick="resVerticalOffset()">Res vertical offset to 2</button>
+                <button onclick="addHorizontalOffset()">Add horizontal offset</button>
+                <button onclick="subHorizontalOffset()">Sub horizontal offset</button>
+                <button onclick="resHorizontalOffset()">Res horizontal offset to 2</button>
+            </div>-->
+            <div id="rangeInputs" style="left: 610px;">
+                <input type="range" id="verticalAl" name="verticalAl" 
+                value="2" min="1" max="2" step="0.1" oninput="verticalOffsetRange(this.value)">
+                    <label for="verticalAl">Vertical align</label>
+                </input>
+                <input type="range" id="verticalAl2" name="verticalAl2" 
+                value="2" min="1" max="2" step="0.1">
+                    <label for="verticalAl2">Horizontal align</label>    
+                </input>
+            </div>
         </div>
-            
-        <!--<div>
-            <input type="range" id="verticalAl" name="verticalAl" 
-            value="2" min="1" max="2" step="0.1">
-                <label for="verticalAl">Vertical align</label>
-                
-            </input>
-            <input type="range" id="verticalAl2" name="verticalAl2" 
-            value="2" min="1" max="2" step="0.1">
-                <label for="verticalAl2">Horizontal align</label>
-                
-            </input>
-        </div>-->
-
-         
          <script src="gridGen.js"></script>
-         
     </body>
 </html>
