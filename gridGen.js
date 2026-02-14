@@ -2,25 +2,39 @@
             const ctx = canvas.getContext("2d");
             let count = 10; // This value is for grid drawing function
             let sqCount = 10; // This value is for square drawing function, quantity of squares
-            let gap = 10;
+            let gap = 10; // This value is for difference gap between squares
             let offsetSq = 2;
             let offsetSq2 = 2;
+            let horDist = 0;
+            let vertDist = 0;
             genSquare();
 
-            
+            function horizontalDistortion(value){
+                ctx.clearRect(0, 0, 600, 600);
+                horDist = value * 1;
+                genSquare();
+                console.log("offsetSq " + horDist);
+            }
+
+            function verticalDistortion(value){
+                ctx.clearRect(0, 0, 600, 600);
+                vertDist = value * 1;
+                genSquare();
+                console.log("offsetSq " + vertDist);
+            }
             
             function gapBetweenSquares(value) {
                 ctx.clearRect(0, 0, 600, 600);
                 gap = value;
                 genSquare();
-                console.log(gap);
+                console.log("Gap " + gap);
             }
 
             function quantityOfSquares(value){
                 ctx.clearRect(0, 0, 600, 600);
                 sqCount = value;
                 genSquare();
-                console.log(sqCount);
+                console.log("sqCount " + sqCount);
             }
             
 
@@ -34,52 +48,19 @@
                 let gsz = gap;
                 let osc = offsetSq;
                 let osc2 = offsetSq2;
-                let multSq = 10;
+                let multSqH = 10;
+                let multSqV = 10;
                 let lw = 2;
                 let osc_m, osc2_m;
-                osc_m = 1;
-                osc2_m = 1;
+                osc_m = horDist;
+                osc2_m = vertDist;
                 for (sc; sc >= 2; sc --) {
                     ctx.lineWidth = lw;
                     ctx.beginPath();
-                    ctx.rect(multSq * osc_m, multSq * osc2_m, fullSize - multSq*osc, fullSize - multSq*osc2); // By changing the multiplier it is possible to offset squares to corner
+                    ctx.rect(multSqH + osc_m, multSqV + osc2_m, fullSize - multSqH*osc, fullSize - multSqV*osc2); // By changing the multiplier it is possible to offset squares to corner
                     ctx.stroke();
                     
-                    multSq = multSq + (1 * gsz);
+                    multSqH = multSqH + (1 * gsz);
+                    multSqV = multSqV + (1 * gsz);
                 }
-            }
-
-            function addSq(){ctx.clearRect(0, 0, 600, 600);
-                             count = count + 1;
-                             drawGridset();}
-
-            function subSq(){ctx.clearRect(0, 0, 600, 600);
-                             count = count - 1;
-                             drawGridset();}
-
-            function resSq(){ctx.clearRect(0, 0, 600, 600);
-                             count = 10;
-                             drawGridset();}
-
-            function clscr(){ctx.clearRect(0,0,600,600);}
-
-            function drawGridset(){
-                
-                let divider, divider2, gridCount;
-                gridCount = count;
-                divider = 600/gridCount;
-                divider2 = 600/gridCount;
-                for (gridCount; gridCount >= 0; gridCount--) {
-                    ctx.beginPath();
-                    ctx.moveTo(divider, 0);
-                    ctx.lineTo(divider, 600);
-                    ctx.stroke();
-                    ctx.beginPath();
-                    ctx.moveTo(0, divider);
-                    ctx.lineTo(600, divider);
-                    ctx.stroke();
-                    divider = divider + divider2;
-                    
-                }
-                    
             }
